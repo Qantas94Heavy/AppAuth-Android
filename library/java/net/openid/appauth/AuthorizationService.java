@@ -449,6 +449,7 @@ public class AuthorizationService {
 
                 wr.write(queryData);
                 wr.flush();
+                wr.close();
 
                 if (conn.getResponseCode() >= HttpURLConnection.HTTP_OK
                         && conn.getResponseCode() < HttpURLConnection.HTTP_MULT_CHOICE) {
@@ -598,6 +599,7 @@ public class AuthorizationService {
                 OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
                 wr.write(postData);
                 wr.flush();
+                wr.close();
 
                 is = conn.getInputStream();
                 String response = Utils.readInputStream(is);
